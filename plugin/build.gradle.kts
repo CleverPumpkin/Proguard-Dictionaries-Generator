@@ -15,9 +15,10 @@ dependencies {
     implementation(BuildScriptPlugins.android)
 }
 
-group = Plugins.dictgen
+group = Plugins.proguardDictionaries
 
 // Upload archive to rootProject/plugin/badgeRepo folder to test plugin locale.
+// Use "uploadArchives" task.
 tasks.named<Upload>("uploadArchives") {
     repositories.withGroovyBuilder {
         "mavenDeployer" {
@@ -28,22 +29,21 @@ tasks.named<Upload>("uploadArchives") {
 
 // Add info for publication to plugin portal.
 pluginBundle {
-    // TODO
-    vcsUrl = "TODO"
-    website = "TODO"
+    vcsUrl = "https://github.com/CleverPumpkin/Proguard-Dictionaries-Generator"
+    website = "https://github.com/CleverPumpkin/Proguard-Dictionaries-Generator"
     description = "This is an Android gradle plugin that allows you to generate " +
-            "dictionary files for proguard"
+            "randomized dictionaries for proguard"
     tags = listOf("android", "proguard", "generator", "dictionary", "obfuscation", "minification")
 }
 
 // Create plugin itself.
 gradlePlugin {
     plugins {
-        create("dictgenPlugin") {
-            id = Plugins.dictgen
-            version = Versions.projectVersion
-            displayName = "Proguard Dictionaries Generator "
-            implementationClass = "ru.cleverpumpkin.dictgen.ProguardDictionaryGeneratorPlugin"
+        create("plugin") {
+            version = Versions.projectVer
+            id = Plugins.proguardDictionaries
+            displayName = "Proguard Dictionaries Generator Plugin"
+            implementationClass = "ru.cleverpumpkin.plugin.ProguardDictionaryGeneratorPlugin"
         }
     }
 }

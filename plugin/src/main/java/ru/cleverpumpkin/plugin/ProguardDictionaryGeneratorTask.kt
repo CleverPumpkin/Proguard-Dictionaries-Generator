@@ -1,4 +1,4 @@
-package ru.cleverpumpkin.dictgen
+package ru.cleverpumpkin.plugin
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction

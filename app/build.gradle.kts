@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id(Plugins.dictgen)
+    id(Plugins.proguardDictionaries)
 }
 
 android {

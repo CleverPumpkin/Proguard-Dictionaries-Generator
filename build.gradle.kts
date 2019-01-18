@@ -10,7 +10,7 @@ buildscript {
     dependencies {
         classpath(BuildScriptPlugins.kotlin)
         classpath(BuildScriptPlugins.android)
-        classpath(BuildScriptPlugins.dictgen)
+        classpath(BuildScriptPlugins.proguardDictionaries)
     }
 }
 
@@ -34,7 +34,7 @@ subprojects {
                     minSdkVersion(21)
                     targetSdkVersion(28)
                     versionCode = 1
-                    versionName = Versions.projectVersion
+                    versionName = Versions.projectVer
                 }
 
                 buildTypes {
