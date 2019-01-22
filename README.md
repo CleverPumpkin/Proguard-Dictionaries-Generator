@@ -10,7 +10,6 @@ buildscript {
     gradlePluginPortal()
 
     dependencies {
-        // TODO: Set valid plugin id.
         classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.0"
     }
 }
