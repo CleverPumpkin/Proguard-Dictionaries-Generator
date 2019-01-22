@@ -11,7 +11,7 @@ buildscript {
 
     dependencies {
         // TODO: Set valid plugin id.
-        classpath "gradle.plugin.app-badge:plugin:1.0.0"
+        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.0"
     }
 }
 ```
