@@ -14,11 +14,8 @@ open class ProguardDictionaryPluginExtension {
     }
 
     var dictionaryNames = listOf<String>()
-    var minLineLength: Int =
-        DEFAULT_MIN_LINE_LENGTH
-    var maxLineLength: Int =
-        DEFAULT_MAX_LINE_LENGTH
-    var linesCountInDictionary: Int =
-        DEFAULT_LINES_COUNT
+    var minLineLength: Int = DEFAULT_MIN_LINE_LENGTH
+    var maxLineLength: Int = DEFAULT_MAX_LINE_LENGTH
+    var linesCountInDictionary: Int = DEFAULT_LINES_COUNT
 
 }

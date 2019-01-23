@@ -12,9 +12,9 @@ android {
 
 proguardDictionaries {
     dictionaryNames = listOf(
-        "class-dictionary",
-        "package-dictionary",
-        "obfuscation-dictionary"
+        "build/class-dictionary",
+        "build/package-dictionary",
+        "build/obfuscation-dictionary"
     )
 }
 

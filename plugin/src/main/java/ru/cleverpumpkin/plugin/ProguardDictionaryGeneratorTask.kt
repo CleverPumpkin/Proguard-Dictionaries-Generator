@@ -37,9 +37,8 @@ open class ProguardDictionaryGeneratorTask @Inject constructor(
                 }
             }
 
-        val projectBuildDir = project.buildDir.apply { createNewFile() }
-        File("$projectBuildDir/$dictionaryName.txt").run {
-            createNewFile()
+        File(project.projectDir, "$dictionaryName.txt").run {
+            parentFile.mkdirs()
             writeText(dictionarySet.joinToString("\n"))
         }
     }

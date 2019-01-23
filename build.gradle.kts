@@ -38,18 +38,13 @@ subprojects {
                 }
 
                 buildTypes {
-                    maybeCreate("debug")
-                    maybeCreate("release")
-                }
-
-                buildTypes {
                     maybeCreate("release").apply {
                         isDebuggable = false
                         isMinifyEnabled = true
                         signingConfig = signingConfigs.getByName("debug")
 
                         proguardFiles(
-                            getDefaultProguardFile("proguard-android.txt"),
+                            getDefaultProguardFile("proguard-android-optimize.txt"),
                             File("proguard-rules.pro")
                         )
                     }

@@ -10,7 +10,7 @@ buildscript {
     gradlePluginPortal()
 
     dependencies {
-        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.0"
+        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.1"
     }
 }
 ```
@@ -23,9 +23,9 @@ apply plugin: "ru.cleverpumpkin.proguard-dictionaries-generator"
 
 proguardDictionaries {
     dictionaryNames = [
-                       "class-dictionary",
-                       "package-dictionary",
-                       "obfuscation-dictionary"
+                       "build/class-dictionary",
+                       "build/package-dictionary",
+                       "build/obfuscation-dictionary"
                        ]
 }
 ```
@@ -35,16 +35,18 @@ plugins {
     id("ru.cleverpumpkin.proguard-dictionaries-generator")
 }
 proguardDictionaries {
-    dictionaryNames =  dictionaryNames = listOf(
-         "class-dictionary",
-         "package-dictionary",
-         "obfuscation-dictionary"
+    dictionaryNames = listOf(
+         "build/class-dictionary",
+         "build/package-dictionary",
+         "build/obfuscation-dictionary"
       )
 }
 ```
 This simple setup will generate file `class-dictionary.txt`
 in `build` folder of module on which plugin applied.
-This file generated on each build
+You can specify any directory relatively to your module's root.
+
+These files are generated on each build
 (so you'll get different dictionary on each build)
 
 ### Advanced configuration
