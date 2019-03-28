@@ -68,7 +68,7 @@ class ProguardDictionaryGeneratorPlugin : Plugin<Project> {
     }
 
     private fun Project.isR8Enabled(): Boolean {
-        return properties.any { (key) -> key in PROP_R8 }
+        return properties.any { (key, value) -> key in PROP_R8 && value == "true" }
     }
 
     private fun Project.findTransformTask(taskName: String): Task? {
