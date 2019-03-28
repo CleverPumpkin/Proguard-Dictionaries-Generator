@@ -11,10 +11,13 @@ import org.gradle.api.Task
 class ProguardDictionaryGeneratorPlugin : Plugin<Project> {
 
     private companion object {
-        // Task on which we depends on.
+        // Tasks on which we depends on.
+        const val TARGET_R8_TASK = "transformClassesAndResourcesWithR8For"
         const val TARGET_PROGUARD_TASK = "transformClassesAndResourcesWithProguardFor"
 
         const val LOG_TAG = "ProguardDictionaryGenerator"
+
+        val PROP_R8 = listOf("android.enableR8", "android.enableR8.fullMode")
     }
 
     override fun apply(project: Project) {
@@ -33,10 +36,11 @@ class ProguardDictionaryGeneratorPlugin : Plugin<Project> {
     private fun Project.setupPlugin() {
         val pluginExtension = findPluginExtension()
 
-        val proguardTask = findProguardTransformTask()
+        val targetTaskName = getTargetTaskName()
+        val proguardTask = findTransformTask(targetTaskName)
         if (proguardTask == null) {
             logger.lifecycle(
-                "$LOG_TAG: proguard task ($TARGET_PROGUARD_TASK) not found"
+                "$LOG_TAG: proguard task ($targetTaskName) not found"
             )
             return
         }
@@ -59,8 +63,16 @@ class ProguardDictionaryGeneratorPlugin : Plugin<Project> {
         proguardTask.dependsOn(createGeneratorTask)
     }
 
-    private fun Project.findProguardTransformTask(): Task? {
-        return tasks.find { task -> task.name.startsWith(TARGET_PROGUARD_TASK) }
+    private fun Project.getTargetTaskName(): String {
+        return if (isR8Enabled()) TARGET_R8_TASK else TARGET_PROGUARD_TASK
+    }
+
+    private fun Project.isR8Enabled(): Boolean {
+        return properties.any { (key) -> key in PROP_R8 }
+    }
+
+    private fun Project.findTransformTask(taskName: String): Task? {
+        return tasks.find { task -> task.name.startsWith(taskName) }
     }
 
     private fun Project.findPluginExtension(): ProguardDictionaryPluginExtension {

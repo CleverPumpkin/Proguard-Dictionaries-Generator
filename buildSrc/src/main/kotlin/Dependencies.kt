@@ -5,9 +5,9 @@ import Versions.projectVer
 
 object Versions {
     const val kotlinVer = "1.3.11"
-    const val projectVer = "1.0.1"
+    const val projectVer = "1.0.2"
     const val androidXVer = "1.0.0"
-    const val gradlePluginVer = "3.3.0"
+    const val gradlePluginVer = "3.3.2"
 }
 
 object BuildScriptPlugins {

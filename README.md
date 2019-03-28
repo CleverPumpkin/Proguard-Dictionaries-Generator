@@ -1,6 +1,6 @@
 Gradle Plugin that generates randomized dictionaries for proguard
 
-**Tested on latest (3.3) Android Gradle Plugin.**
+**Tested on latest (3.3.2) Android Gradle Plugin.**
 
 # How to add
 In your root project's `build.gradle`
@@ -10,7 +10,7 @@ buildscript {
     gradlePluginPortal()
 
     dependencies {
-        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.1"
+        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.2"
     }
 }
 ```
@@ -70,6 +70,11 @@ In your `proguard-rules.pro` file
 ### Additional info
 Plugin runs automatically when android plugin executes proguard task,
 so you don't need anything special to get it work.
+
+Also plugin supports R8, new code shrinker. If you'd apply it in 
+your gradle properties file
+(`android.enableR8=true` or `android.enableR8.fullMode=true`),
+the plugin will take it in account automatically. 
 
 White space, punctuation characters, duplicate words,
 and comments after a # sign are ignored in dictionaries by Proguard.
