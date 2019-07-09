@@ -1,8 +1,10 @@
+# Proguard & R8 Dictionaries Generator
+
 Gradle Plugin that generates randomized dictionaries for proguard
 
 **Tested on latest (3.3.2) Android Gradle Plugin.**
 
-# How to add
+## How to add
 In your root project's `build.gradle`
 ```
 buildscript {
@@ -10,30 +12,33 @@ buildscript {
     gradlePluginPortal()
 
     dependencies {
-        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.2"
+        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.4"
     }
 }
 ```
-# Simple configuration
+## Simple configuration
 In your app module's `build.gradle`
 
-For Groovy:
-```
+
+For **Groovy**:
+```groovy
 apply plugin: "ru.cleverpumpkin.proguard-dictionaries-generator"
 
 proguardDictionaries {
     dictionaryNames = [
-                       "build/class-dictionary",
-                       "build/package-dictionary",
-                       "build/obfuscation-dictionary"
-                       ]
+        "build/class-dictionary",
+        "build/package-dictionary",
+        "build/obfuscation-dictionary"
+    ]
 }
 ```
-For Kotlin DSL:
-```
+
+For **Kotlin DSL**:
+```kotlin
 plugins {
     id("ru.cleverpumpkin.proguard-dictionaries-generator")
 }
+
 proguardDictionaries {
     dictionaryNames = listOf(
          "build/class-dictionary",
@@ -42,15 +47,16 @@ proguardDictionaries {
       )
 }
 ```
+
 This simple setup will generate file `class-dictionary.txt`
 in `build` folder of module on which plugin applied.
-You can specify any directory relatively to your module's root.
+You can specify any directory **relatively to your module's root**.
 
 These files are generated on each build
-(so you'll get different dictionary on each build)
+(so you'll get different dictionary on each build).
 
 ### Advanced configuration
-```
+```groovy
 proguardDictionaries {
     dictionaryNames = ["any", "files, "you", "want"]
     minLineLength 10 // Default value: 5
@@ -68,13 +74,15 @@ In your `proguard-rules.pro` file
 ```
 
 ### Additional info
-Plugin runs automatically when android plugin executes proguard task,
+Plugin runs automatically when android plugin executes proguard or R8 task:
+
+- transformClassesAndResourcesWithR8For{BuiltFlavor}{BuiltType}
+- transformClassesAndResourcesWithProguardFor{BuiltFlavor}{BuiltType}
+
 so you don't need anything special to get it work.
 
-Also plugin supports R8, new code shrinker. If you'd apply it in 
-your gradle properties file
-(`android.enableR8=true` or `android.enableR8.fullMode=true`),
-the plugin will take it in account automatically. 
+
+### Dictionary alphabet
 
 White space, punctuation characters, duplicate words,
 and comments after a # sign are ignored in dictionaries by Proguard.
@@ -82,5 +90,5 @@ So generated file could contains any symbols except above.
 
 https://www.guardsquare.com/en/products/proguard/manual/usage#obfuscationoptions
 
-# Developed by 
+## Developed by 
 Sergey Chuprin - <gregamer@gmail.com>
