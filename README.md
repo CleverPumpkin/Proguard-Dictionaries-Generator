@@ -94,10 +94,10 @@ Add to your `proguard-rules.pro` file:
 ```
 
 ### Additional info
-Plugin runs automatically when android plugin executes proguard or R8 task:
+Plugin runs automatically when android plugin executes Proguard or R8 task:
 
-- transformClassesAndResourcesWithR8For{BuiltFlavor}{BuiltType}
-- transformClassesAndResourcesWithProguardFor{BuiltFlavor}{BuiltType}
+- `transformClassesAndResourcesWithR8For{BuiltFlavor}{BuiltType}`
+- `transformClassesAndResourcesWithProguardFor{BuiltFlavor}{BuiltType}`
 
 so you don't need anything special to get it work.
 
@@ -111,5 +111,5 @@ So generated file could contains any symbols except above.
 https://www.guardsquare.com/en/products/proguard/manual/usage#obfuscationoptions
 
 ## Authors
-Developed by Sergey Chuprin - <gregamer@gmail.com>
+Developed by Sergey Chuprin - <gregamer@gmail.com><br/>
 Supported by Ruslan Arslanov – <arslanov.r.f@gmail.com>
