@@ -105,7 +105,7 @@ so you don't need anything special to get it work.
 ### Dictionary alphabet
 
 White space, punctuation characters, duplicate words,
-and comments after a # sign are ignored in dictionaries by Proguard.
+and comments after a `#` sign are ignored in dictionaries by Proguard.
 So generated file could contains any symbols except above.
 
 https://www.guardsquare.com/en/products/proguard/manual/usage#obfuscationoptions
