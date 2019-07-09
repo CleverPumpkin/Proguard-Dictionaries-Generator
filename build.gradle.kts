@@ -6,11 +6,12 @@ buildscript {
         google()
         mavenCentral()
         maven(uri("plugin/pluginRepo"))
+        maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
         classpath(BuildScriptPlugins.kotlin)
         classpath(BuildScriptPlugins.android)
-        classpath(BuildScriptPlugins.proguardDictionaries)
+        classpath(BuildScriptPlugins.dictionariesGenerator)
     }
 }
 

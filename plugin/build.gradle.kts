@@ -1,5 +1,5 @@
 plugins {
-    id("com.gradle.plugin-publish") version "0.10.0"
+    id("com.gradle.plugin-publish") version "0.10.1"
     `kotlin-dsl`
     maven
 }
@@ -15,7 +15,7 @@ dependencies {
     implementation(BuildScriptPlugins.android)
 }
 
-group = Plugins.proguardDictionaries
+group = Plugins.dictionariesGenerator
 
 // Upload archive to rootProject/plugin/badgeRepo folder to test plugin locale.
 // Use "uploadArchives" task.
@@ -41,9 +41,9 @@ gradlePlugin {
     plugins {
         create("plugin") {
             version = Versions.projectVer
-            id = Plugins.proguardDictionaries
-            displayName = "Proguard Dictionaries Generator Plugin"
-            implementationClass = "ru.cleverpumpkin.plugin.ProguardDictionaryGeneratorPlugin"
+            id = Plugins.dictionariesGenerator
+            displayName = "Proguard R8 Dictionaries Generator Plugin"
+            implementationClass = "ru.cleverpumpkin.plugin.ProguardR8DictionaryGeneratorPlugin"
         }
     }
 }

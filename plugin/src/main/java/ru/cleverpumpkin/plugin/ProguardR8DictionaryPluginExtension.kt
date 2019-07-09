@@ -1,9 +1,9 @@
 package ru.cleverpumpkin.plugin
 
 /**
- * @author Sergey Chuprin
+ * Created by Sergey Chuprin on 16/01/2019.
  */
-open class ProguardDictionaryPluginExtension {
+open class ProguardR8DictionaryPluginExtension {
 
     companion object {
         internal const val NAME = "proguardDictionaries"

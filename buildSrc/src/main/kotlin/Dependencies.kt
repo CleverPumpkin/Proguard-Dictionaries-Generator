@@ -1,3 +1,4 @@
+
 import Versions.androidXVer
 import Versions.gradlePluginVer
 import Versions.kotlinVer
@@ -5,7 +6,7 @@ import Versions.projectVer
 
 object Versions {
     const val kotlinVer = "1.3.11"
-    const val projectVer = "1.0.2"
+    const val projectVer = "1.0.4"
     const val androidXVer = "1.0.0"
     const val gradlePluginVer = "3.3.2"
 }
@@ -13,12 +14,12 @@ object Versions {
 object BuildScriptPlugins {
     const val android = "com.android.tools.build:gradle:$gradlePluginVer"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
-    const val proguardDictionaries =
-        "ru.cleverpumpkin.proguard-dictionaries-generator:plugin:$projectVer"
+    const val dictionariesGenerator =
+        "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:$projectVer"
 }
 
 object Plugins {
-    const val proguardDictionaries = "ru.cleverpumpkin.proguard-dictionaries-generator"
+    const val dictionariesGenerator = "ru.cleverpumpkin.proguard-dictionaries-generator"
 }
 
 object Libraries {

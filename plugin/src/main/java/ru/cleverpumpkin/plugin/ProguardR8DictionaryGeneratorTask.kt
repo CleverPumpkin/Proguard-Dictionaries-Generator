@@ -7,7 +7,10 @@ import java.util.*
 import java.util.concurrent.ThreadLocalRandom
 import javax.inject.Inject
 
-open class ProguardDictionaryGeneratorTask @Inject constructor(
+/**
+ * Created by Sergey Chuprin on 16/01/2019.
+ */
+open class ProguardR8DictionaryGeneratorTask @Inject constructor(
     private val dictionaryNames: List<String>,
     private val linesCountInDictionary: Int,
     private val minLineLength: Int,
