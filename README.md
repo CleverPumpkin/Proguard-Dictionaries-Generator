@@ -2,25 +2,42 @@
 
 Gradle Plugin that generates randomized dictionaries for proguard
 
-**Tested on latest (3.3.2) Android Gradle Plugin.**
+**Tested on Android Gradle Plugin version 3.4.1.**
 
 ## How to add
-In your root project's `build.gradle`
-```
+Add to your root project's `build.gradle`:
+
+For **Groovy**
+```groovy
 buildscript {
     repositories {
-    gradlePluginPortal()
+        gradlePluginPortal()
+    }
 
     dependencies {
         classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.4"
     }
 }
 ```
+
+For **Kotlin DSL**
+```kotlin
+buildscript {
+    repositories {
+        maven {
+        url = uri("https://plugins.gradle.org/m2/")
+        }
+    }
+    dependencies {
+        classpath("gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.4")
+    }
+}
+```
+
 ## Simple configuration
-In your app module's `build.gradle`
+Add to your app module's `build.gradle`:
 
-
-For **Groovy**:
+For **Groovy**
 ```groovy
 apply plugin: "ru.cleverpumpkin.proguard-dictionaries-generator"
 
@@ -33,7 +50,7 @@ proguardDictionaries {
 }
 ```
 
-For **Kotlin DSL**:
+For **Kotlin DSL**
 ```kotlin
 plugins {
     id("ru.cleverpumpkin.proguard-dictionaries-generator")
@@ -56,6 +73,7 @@ These files are generated on each build
 (so you'll get different dictionary on each build).
 
 ### Advanced configuration
+
 ```groovy
 proguardDictionaries {
     dictionaryNames = ["any", "files, "you", "want"]
@@ -66,7 +84,9 @@ proguardDictionaries {
 ```
 
 ### How to use plugin output result
-In your `proguard-rules.pro` file
+
+Add to your `proguard-rules.pro` file:
+
 ```
 -obfuscationdictionary build/obfuscation-dictionary.txt
 -classobfuscationdictionary build/class-dictionary.txt
@@ -90,5 +110,6 @@ So generated file could contains any symbols except above.
 
 https://www.guardsquare.com/en/products/proguard/manual/usage#obfuscationoptions
 
-## Developed by 
-Sergey Chuprin - <gregamer@gmail.com>
+## Authors
+Developed by Sergey Chuprin - <gregamer@gmail.com>
+Supported by Ruslan Arslanov – <arslanov.r.f@gmail.com>
