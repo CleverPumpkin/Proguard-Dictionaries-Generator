@@ -93,7 +93,8 @@ Add to your `proguard-rules.pro` file:
 -packageobfuscationdictionary build/package-dictionary.txt
 ```
 
-### Additional info
+### Proguard and R8 support
+
 Plugin runs automatically when android plugin executes Proguard or R8 task:
 
 - `transformClassesAndResourcesWithR8For{BuiltFlavor}{BuiltType}`
@@ -111,5 +112,5 @@ So generated file could contains any symbols except above.
 https://www.guardsquare.com/en/products/proguard/manual/usage#obfuscationoptions
 
 ## Authors
-Developed by Sergey Chuprin - <gregamer@gmail.com><br/>
-Supported by Ruslan Arslanov – <arslanov.r.f@gmail.com>
+Developed by Sergey Chuprin (<gregamer@gmail.com>)<br/>
+Supported by Ruslan Arslanov (<arslanov.r.f@gmail.com>)
