@@ -5,13 +5,15 @@ Gradle Plugin that generates randomized dictionaries for proguard
 **Tested on Android Gradle Plugin version 3.4.1.**
 
 ## How to add
-Add to your root project's `build.gradle`:
+Add to your **root project's** `build.gradle`:
 
 For **Groovy**
 ```groovy
 buildscript {
     repositories {
-        gradlePluginPortal()
+        maven { 
+            url "https://plugins.gradle.org/m2/" 
+        }
     }
 
     dependencies {
@@ -25,7 +27,7 @@ For **Kotlin DSL**
 buildscript {
     repositories {
         maven {
-        url = uri("https://plugins.gradle.org/m2/")
+            url = uri("https://plugins.gradle.org/m2/")
         }
     }
     dependencies {
@@ -35,7 +37,7 @@ buildscript {
 ```
 
 ## Simple configuration
-Add to your app module's `build.gradle`:
+Add to your **app module's** `build.gradle`:
 
 For **Groovy**
 ```groovy
@@ -65,12 +67,12 @@ proguardDictionaries {
 }
 ```
 
-This simple setup will generate file `class-dictionary.txt`
-in `build` folder of module on which plugin applied.
-You can specify any directory **relatively to your module's root**.
+This setup will generate files `class-dictionary.txt`, `package-dictionary.txt` 
+and `obfuscation-dictionary.txt` in `build` subdirectory of the module to which the plugin 
+is applied. You can specify any directory **relatively to your module's root**. 
 
-These files are generated on each build
-(so you'll get different dictionary on each build).
+These files will be generated from scratch on every build, so you'll have different dictionaries 
+for each build.
 
 ### Advanced configuration
 
@@ -100,14 +102,13 @@ Plugin runs automatically when android plugin executes Proguard or R8 task:
 - `transformClassesAndResourcesWithR8For{BuiltFlavor}{BuiltType}`
 - `transformClassesAndResourcesWithProguardFor{BuiltFlavor}{BuiltType}`
 
-so you don't need anything special to get it work.
+You don't have to specify anything special to get it work.
 
 
 ### Dictionary alphabet
 
-White space, punctuation characters, duplicate words,
-and comments after a `#` sign are ignored in dictionaries by Proguard.
-So generated file could contains any symbols except above.
+Whitespaces, punctuation characters, duplicate words, and comments after a `#` sign are ignored 
+in dictionaries by Proguard. So generated file could contains any symbols except listed above.
 
 https://www.guardsquare.com/en/products/proguard/manual/usage#obfuscationoptions
 
