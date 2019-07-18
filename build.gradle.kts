@@ -35,7 +35,7 @@ subprojects {
                     minSdkVersion(21)
                     targetSdkVersion(28)
                     versionCode = 1
-                    versionName = Versions.projectVer
+                    versionName = PluginVersions.SAMPLE
                 }
 
                 buildTypes {

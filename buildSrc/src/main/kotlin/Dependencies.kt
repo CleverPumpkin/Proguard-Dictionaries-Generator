@@ -1,21 +1,36 @@
 
-import Versions.androidXVer
-import Versions.gradlePluginVer
-import Versions.kotlinVer
-import Versions.projectVer
+import LibrariesVersions.ANDROID_X_VERSION
+import LibrariesVersions.GRADLE_PLUGIN_VERSION
+import LibrariesVersions.KOTLIN_VERSION
+import PluginVersions.SAMPLE
+import PluginVersions.UPLOAD
 
-object Versions {
-    const val kotlinVer = "1.3.11"
-    const val projectVer = "1.0.5"
-    const val androidXVer = "1.0.0"
-    const val gradlePluginVer = "3.4.1"
+object LibrariesVersions {
+    const val KOTLIN_VERSION = "1.3.11"
+    const val ANDROID_X_VERSION = "1.0.0"
+    const val GRADLE_PLUGIN_VERSION = "3.4.1"
+}
+
+object PluginVersions {
+    /**
+     * The constant used to specify the version of a plugin which will be uploaded to
+     * the Gradle Plugin portal when "publishPlugins" task runs.
+     */
+    const val UPLOAD = "1.0.6"
+
+    /**
+     * The constant used to specify the version of a plugin which is applied to the Sample app.
+     * Usually it equals [UPLOAD] constant and differs only when a new plugin version is about
+     * to be uploaded.
+     */
+    const val SAMPLE = "1.0.4"
 }
 
 object BuildScriptPlugins {
-    const val android = "com.android.tools.build:gradle:$gradlePluginVer"
-    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVer"
+    const val android = "com.android.tools.build:gradle:$GRADLE_PLUGIN_VERSION"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
     const val dictionariesGenerator =
-        "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:$projectVer"
+        "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:$SAMPLE"
 }
 
 object Plugins {
@@ -23,6 +38,6 @@ object Plugins {
 }
 
 object Libraries {
-    const val androidX = "androidx.appcompat:appcompat:$androidXVer"
-    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVer"
+    const val androidX = "androidx.appcompat:appcompat:$ANDROID_X_VERSION"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
 }

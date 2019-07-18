@@ -31,16 +31,27 @@ tasks.named<Upload>("uploadArchives") {
 pluginBundle {
     vcsUrl = "https://github.com/CleverPumpkin/Proguard-Dictionaries-Generator"
     website = "https://github.com/CleverPumpkin/Proguard-Dictionaries-Generator"
-    description = "This is an Android gradle plugin that allows you to generate " +
-            "randomized dictionaries for proguard"
-    tags = listOf("android", "proguard", "generator", "dictionary", "obfuscation", "minification")
+
+    description = "This is an Android gradle plugin that allows you to generate randomized " +
+            "dictionaries for Proguard and R8"
+
+    tags = listOf(
+        "android",
+        "proguard",
+        "R8",
+        "generator",
+        "dictionary",
+        "obfuscation",
+        "shrinking",
+        "minification"
+    )
 }
 
 // Create plugin itself.
 gradlePlugin {
     plugins {
         create("plugin") {
-            version = Versions.projectVer
+            version = PluginVersions.UPLOAD
             id = Plugins.dictionariesGenerator
             displayName = "Proguard R8 Dictionaries Generator Plugin"
             implementationClass = "ru.cleverpumpkin.plugin.ProguardR8DictionaryGeneratorPlugin"
