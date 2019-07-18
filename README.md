@@ -17,7 +17,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.5"
+        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.6"
     }
 }
 ```
@@ -31,7 +31,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath("gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.5")
+        classpath("gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.6")
     }
 }
 ```
@@ -76,12 +76,23 @@ for each build.
 
 ### Advanced configuration
 
+For **Groovy**
 ```groovy
 proguardDictionaries {
-    dictionaryNames = ["any", "files, "you", "want"]
-    minLineLength 20 // Default value: 10
-    maxLineLength 50 // Default value: 30
-    linesCountInDictionary 50000 // Default value: 30000
+    dictionaryNames = [ "any", "files, "you", "want" ]
+    minLineLength 20  // Default value: 10
+    maxLineLength 50  // Default value: 30
+    linesCountInDictionary 50000  // Default value: 30000
+}
+```
+
+For **Kotlin DSL**
+```kotlin
+proguardDictionaries {
+    dictionaryNames = [ "any", "files, "you", "want" ]
+    minLineLength = 20  // Default value: 10
+    maxLineLength = 50  // Default value: 30
+    linesCountInDictionary = 50000  // Default value: 30000
 }
 ```
 
@@ -97,12 +108,12 @@ Add to your `proguard-rules.pro` file:
 
 ## Program classes number issue
 
-**Important:** if the final number of classes in `*.apk` after code shrinking by Proguard / R8 
-**exceeds the `linesCountInDictionary` value**, then all remaining classes **will be named by 
-default** – starting with first alphabet letters.
+**Important:** if the final number of classes in `*.apk` after code shrinking **exceeds the 
+`linesCountInDictionary` value**, then all remaining classes **will be named by default** – 
+starting with first alphabet letters.
 
 Thus, the `linesCountInDictionary` value must be greater than a number of program classes after 
-the code shrinking. 
+code shrinking. 
 
 The default size of the dictionary is `30000` lines.
 
@@ -118,7 +129,7 @@ Or:
 **Analyze APK...**).
 3. In APK Analyzer window select `classes.dex` file. Check the value in the line 
 "This dex file defines X classes..."
-4. If more than one `*.dex` files present in APK, select each of them and sum up all classes numbers.
+4. If more `*.dex` files present in APK, select each of them and sum up all classes numbers.
 
 Finally, set the value of `linesCountInDictionary` slightly greater than the resulting number 
 of program classes to keep an extra space for application grow (e. g. if program contains 
