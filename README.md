@@ -79,8 +79,8 @@ for each build.
 ```groovy
 proguardDictionaries {
     dictionaryNames = ["any", "files, "you", "want"]
-    minLineLength 10 // Default value: 5
-    maxLineLength 30 // Default value: 20
+    minLineLength 20 // Default value: 10
+    maxLineLength 50 // Default value: 30
     linesCountInDictionary 50000 // Default value: 30000
 }
 ```
