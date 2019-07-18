@@ -97,11 +97,9 @@ Add to your `proguard-rules.pro` file:
 
 ## Program classes number issue
 
-**Important:**
-
-If the final number of classes in `*.apk` after code shrinking by Proguard / R8 **exceeds the 
-`linesCountInDictionary` value**, then remaining classes **will be named by default** – starting 
-with first alphabet letters.
+**Important:** if the final number of classes in `*.apk` after code shrinking by Proguard / R8 
+**exceeds the `linesCountInDictionary` value**, then all remaining classes **will be named by 
+default** – starting with first alphabet letters.
 
 Thus, the `linesCountInDictionary` value must be greater than a number of program classes after 
 the code shrinking. 
@@ -110,8 +108,8 @@ The default size of the dictionary is `30000` lines.
 
 You can find the number of classes in your `*.apk` by following next steps:
 
-1. While performing build in Android Studio, find the last **Optimizing** step in the console 
-(e. g. "Optimizing (Step 5/5)").
+1. While performing build in Android Studio, find the last **Optimizing** step in the console,
+e. g. "Optimizing (Step 5/5)".
 2. Check the value in line "Final number of program classes".
 
 Or:
@@ -120,10 +118,10 @@ Or:
 **Analyze APK...**).
 3. In APK Analyzer window select `classes.dex` file. Check the value in the line 
 "This dex file defines X classes..."
-4. If more `*.dex` files present in APK, select each of them and sum up all numbers.
+4. If more than one `*.dex` files present in APK, select each of them and sum up all classes numbers.
 
-Finally, set the value of `linesCountInDictionary` slightly greater than the resulting number of 
-program classes to keep a little extra space for application growing (e. g. if program contains 
+Finally, set the value of `linesCountInDictionary` slightly greater than the resulting number 
+of program classes to keep an extra space for application grow (e. g. if program contains 
 9802 classes, you can set the value 12000).
 
 
