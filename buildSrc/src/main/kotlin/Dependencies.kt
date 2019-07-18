@@ -23,7 +23,7 @@ object PluginVersions {
      * Usually it equals [UPLOAD] constant and differs only when a new plugin version is about
      * to be uploaded.
      */
-    const val SAMPLE = "1.0.4"
+    const val SAMPLE = "1.0.6"
 }
 
 object BuildScriptPlugins {
