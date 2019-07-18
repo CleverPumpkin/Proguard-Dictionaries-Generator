@@ -89,7 +89,7 @@ proguardDictionaries {
 For **Kotlin DSL**
 ```kotlin
 proguardDictionaries {
-    dictionaryNames = [ "any", "files, "you", "want" ]
+    dictionaryNames = listOf("any", "files, "you", "want")
     minLineLength = 20  // Default value: 10
     maxLineLength = 50  // Default value: 30
     linesCountInDictionary = 50000  // Default value: 30000
