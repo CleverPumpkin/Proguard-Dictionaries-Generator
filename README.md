@@ -2,7 +2,7 @@
 
 Gradle Plugin that generates randomized dictionaries for proguard
 
-**Tested on Android Gradle Plugin version 3.4.1.**
+**Tested on Android Gradle Plugin version 3.5.0 and 3.6.0-alpha10**
 
 ## How to add
 Add to your **root project's** `build.gradle`:
@@ -17,7 +17,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.6"
+        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.7"
     }
 }
 ```
@@ -31,7 +31,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath("gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.6")
+        classpath("gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.7")
     }
 }
 ```

@@ -12,8 +12,11 @@ class ProguardR8DictionaryGeneratorPlugin : Plugin<Project> {
 
     private companion object {
         const val LOG_TAG = "ProguardR8DictionaryGenerator"
-        const val TARGET_R8_TASK = "transformClassesAndResourcesWithR8For"
-        const val TARGET_PROGUARD_TASK = "transformClassesAndResourcesWithProguardFor"
+        val TARGET_TASKS = listOf(
+            "minifyReleaseWithR8",
+            "transformClassesAndResourcesWithR8For",
+            "transformClassesAndResourcesWithProguardFor"
+        )
     }
 
     override fun apply(project: Project) {
@@ -63,8 +66,9 @@ class ProguardR8DictionaryGeneratorPlugin : Plugin<Project> {
     }
 
     private fun Project.findObfuscationTasks(): List<Task> {
-        return tasks.filter { task -> task.name.startsWith(TARGET_R8_TASK) } +
-                tasks.filter { task -> task.name.startsWith(TARGET_PROGUARD_TASK) }
+        return TARGET_TASKS.flatMap { taskName ->
+            tasks.filter { task -> task.name.startsWith(taskName) }
+        }
     }
 
     private fun Project.findPluginExtension(): ProguardR8DictionaryPluginExtension {
