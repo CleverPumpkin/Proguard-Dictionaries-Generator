@@ -5,8 +5,8 @@ buildscript {
         jcenter()
         google()
         mavenCentral()
+        gradlePluginPortal()
         maven(uri("plugin/pluginRepo"))
-        maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
         classpath(BuildScriptPlugins.kotlin)
