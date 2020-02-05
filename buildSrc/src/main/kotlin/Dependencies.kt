@@ -6,9 +6,9 @@ import PluginVersions.SAMPLE
 import PluginVersions.UPLOAD
 
 object LibrariesVersions {
-    const val KOTLIN_VERSION = "1.3.50"
+    const val KOTLIN_VERSION = "1.3.61"
     const val ANDROID_X_VERSION = "1.0.0"
-    const val GRADLE_PLUGIN_VERSION = "3.5.0"
+    const val GRADLE_PLUGIN_VERSION = "3.6.0-rc02"
 }
 
 object PluginVersions {
@@ -30,7 +30,7 @@ object BuildScriptPlugins {
     const val android = "com.android.tools.build:gradle:$GRADLE_PLUGIN_VERSION"
     const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
     const val dictionariesGenerator =
-        "ru.cleverpumpkin.proguard-dictionaries-generator:plugin:$SAMPLE"
+        "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:$SAMPLE"
 }
 
 object Plugins {
