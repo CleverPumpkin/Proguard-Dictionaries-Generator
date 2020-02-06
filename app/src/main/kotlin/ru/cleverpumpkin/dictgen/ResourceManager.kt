@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.core.content.ContextCompat
 
 /**
- * @author Sergey Chuprin
+ * Created by Sergey Chuprin on 16/01/2019.
  */
 class ResourceManager(
     private val context: Context

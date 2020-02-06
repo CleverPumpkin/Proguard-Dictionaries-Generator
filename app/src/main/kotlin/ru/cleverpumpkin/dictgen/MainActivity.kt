@@ -4,6 +4,9 @@ import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 
+/**
+ * Created by Sergey Chuprin on 16/01/2019.
+ */
 class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

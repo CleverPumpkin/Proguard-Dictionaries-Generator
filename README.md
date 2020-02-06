@@ -17,7 +17,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.7"
+        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.8"
     }
 }
 ```
@@ -31,7 +31,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath("gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.7")
+        classpath("gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.8")
     }
 }
 ```
@@ -151,7 +151,18 @@ You don't have to specify anything special to get it work.
 Whitespaces, punctuation characters, duplicate words, and comments after a `#` sign are ignored 
 in dictionaries by Proguard. So generated file could contains any symbols except listed above.
 
-https://www.guardsquare.com/en/products/proguard/manual/usage#obfuscationoptions
+<https://www.guardsquare.com/en/products/proguard/manual/usage#obfuscationoptions>
+
+### Contribution
+
+You need to test plugin locally, right?
+To build plugin locally `uploadArchives` gradle task is used that puts plugin into 
+`PROJECT_DIR/plugin/pluginRepo` folder.
+Plugin should be added to project's buildscript.
+First time after cloning the project there's no locally built plugin so plugin should be downloaded from Gradle Plugin portal thus artifactId is 
+`gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin`
+After project sync upload plugin locally and set artifactId to `ru.cleverpumpkin.proguard-dictionaries-generator:plugin`.
+You can find artifactId [here](https://github.com/CleverPumpkin/Proguard-Dictionaries-Generator/blob/master/buildSrc/src/main/kotlin/Dependencies.kt#L45)
 
 ## Authors
 Developed by Sergey Chuprin (<gregamer@gmail.com>)<br/>
