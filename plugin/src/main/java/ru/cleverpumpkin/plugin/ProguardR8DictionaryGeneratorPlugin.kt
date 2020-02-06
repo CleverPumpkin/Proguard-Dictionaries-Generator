@@ -14,7 +14,7 @@ class ProguardR8DictionaryGeneratorPlugin : Plugin<Project> {
         const val LOG_TAG = "ProguardR8DictionaryGenerator"
         val TARGET_TASKS_REGEX = listOf(
             Regex("minify(.*?)With(?:R8|Proguard)"),
-            Regex("transformClassesAndResourcesWith(?:R8|Proguard)For")
+            Regex("transformClassesAndResourcesWith(?:R8|Proguard)For.*?")
         )
     }
 
