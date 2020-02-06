@@ -12,10 +12,9 @@ class ProguardR8DictionaryGeneratorPlugin : Plugin<Project> {
 
     private companion object {
         const val LOG_TAG = "ProguardR8DictionaryGenerator"
-        val TARGET_TASKS = listOf(
-            "minifyReleaseWithR8",
-            "transformClassesAndResourcesWithR8For",
-            "transformClassesAndResourcesWithProguardFor"
+        val TARGET_TASKS_REGEX = listOf(
+                Regex("minify(.*?)With(?:R8|Proguard)"),
+                Regex("transformClassesAndResourcesWith(?:R8|Proguard)For")
         )
     }
 
@@ -66,8 +65,10 @@ class ProguardR8DictionaryGeneratorPlugin : Plugin<Project> {
     }
 
     private fun Project.findObfuscationTasks(): List<Task> {
-        return TARGET_TASKS.flatMap { taskName ->
-            tasks.filter { task -> task.name.startsWith(taskName) }
+        return TARGET_TASKS_REGEX.flatMap { taskNameRegex ->
+            tasks.filter {
+                task -> taskNameRegex.matches(task.name)
+            }
         }
     }
 
