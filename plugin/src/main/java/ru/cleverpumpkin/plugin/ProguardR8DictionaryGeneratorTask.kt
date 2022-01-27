@@ -24,7 +24,7 @@ open class ProguardR8DictionaryGeneratorTask @Inject constructor(
     // All available symbols.
     // Whitespace, punctuation characters, duplicate words,
     // and comments after a # sign are ignored.
-    private val alphabet = (('a'..'z') + ('A'..'Z') + ('0'..'9')).joinToString("")
+    private val alphabet = (('a'..'z') + ('A'..'Z')).joinToString("")
 
     @TaskAction
     fun run() = dictionaryNames.forEach(::generate)
